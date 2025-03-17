@@ -1,0 +1,443 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evitar que el contenido se desborde horizontalmente */
+}
+
+/* Encabezado */
+header {
+    background: linear-gradient(to right, white, #5a5a5a);
+    color: white;
+    padding: 15px 20px;
+    position: relative;
+    display: flex;
+    height: auto; /* Corregido el valor de 'height' */
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Contenedor-header */
+.contenedor-header {
+    display: flexbox; 
+    align-items: center;
+    text-align: center;
+    padding: 0px;
+}
+
+/* Imagen */
+.logo {
+    height: 30px; /* Corregido el valor de 'height' */
+    align-items: center;
+    margin-right: 10px;
+}
+
+/* Título del encabezado */
+header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: black;
+}
+
+/* Menú de navegación */
+nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+/* Estilo de los enlaces del menú */
+nav a {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* Efecto de sombreado en los enlaces */
+nav a:hover {
+    background-color: #333;
+    color: white; /* Mantener el color blanco */
+}
+
+/* Estilo de la barra de búsqueda */
+#buscar-libro {
+    width: 100%; /* Ancho al 100% para ocupar el espacio disponible */
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-weight: 300;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    margin: 20px auto; /* Centrado automático */
+    max-width: 500px; /* Máximo ancho, pero no se estira demasiado */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+}
+
+
+/* Efecto al enfocar la barra de búsqueda */
+#buscar-libro:focus {
+    border-color: #4a90e2; /* Color azul al hacer foco */
+    box-shadow: 0 3px 10px rgba(74, 144, 226, 0.5); /* Sombra azul suave */
+    outline: none; /* Elimina el borde por defecto del navegador */
+}
+
+/* Estilo del placeholder */
+#buscar-libro::placeholder {
+    color: #aaa; /* Color más claro para el texto del placeholder */
+    font-style: italic; /* Estilo de fuente itálico */
+}
+
+/* Catálogo */
+#libros-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.libro {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Ajustes para evitar que las imágenes de los libros se deformen */
+.libro img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover; /* Recortar sin deformar la imagen */
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.libro img:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+}
+
+/* Efecto de aparición de los libros */
+.libro {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.libro.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilo del carrito */
+#carrito {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    color: black;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    transition: background 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+#carrito:hover {
+    background: #ddd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más suave al pasar el ratón */
+}
+
+/* Contenedor desplegable del carrito */
+#carrito-contenido {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 250px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+/* Estilo para el contenido del carrito */
+#lista-carrito li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Estilo para los botones de eliminación */
+#lista-carrito li button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: background-color 0.3s;
+}
+
+#lista-carrito li button:hover {
+    background-color: #d32f2f;
+}
+
+/* Ajustes a la ventana emergente del carrito */
+#ventana-emergente {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 10px;
+}
+
+/* Estilo para los botones de la ventana emergente */
+#acciones-carrito button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#acciones-carrito button:hover {
+    background-color: #0056b3;
+}
+
+/* Aseguramos que el carrito y la ventana emergente se vean correctamente en diferentes tamaños */
+@media (max-width: 768px) {
+    #libros-container {
+        flex-direction: column; /* Coloca los libros en una columna en pantallas pequeñas */
+    }
+    
+    .libro {
+        width: 90%; /* Asegura que los libros no se vean muy pequeños */
+    }
+    
+    #carrito-contenido {
+        width: 100%;
+    }
+    
+    #carrito-desplegable {
+        width: 100%;
+    }
+}
+
+/* Estilo para los botones generales */
+button {
+    background-color: #4a90e2; /* Color azul moderno */
+    color: white;
+    border: none;
+    padding: 8px 15px; /* Tamaño de botón más pequeño */
+    border-radius: 25px; /* Bordes redondeados suaves */
+    font-size: 14px; /* Fuente más pequeña */
+    font-weight: 400; /* Peso de fuente más ligero */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras para mayor legibilidad */
+}
+
+button:hover {
+    background-color: #357ABD; /* Color ligeramente más oscuro al pasar el mouse */
+    transform: scale(1.03); /* Efecto de zoom suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más suave */
+}
+
+button:active {
+    transform: scale(0.98); /* Reducción al hacer clic */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Vuelve a la sombra inicial */
+}
+
+/* Botón para el carrito */
+#carrito {
+    background-color: #7ada92; /* Color verde atractivo */
+    color: white;
+    font-size: 16px; /* Fuente más pequeña */
+    font-weight: 400; /* Fuente más delgada */
+    border-radius: 50%; /* Botón circular */
+    width: 40px; /* Tamaño reducido */
+    height: 40px; /* Tamaño reducido */
+    padding: 8px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, box-shadow 0.3s ease-in-out;
+}
+
+#carrito:hover {
+    background-color: #FF4500; /* Cambio de color al pasar el ratón */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+/* Botones en el carrito emergente */
+#acciones-carrito button {
+    background-color: #28a745; /* Verde para los botones de acción */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400; /* Fuente más delgada */
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+#acciones-carrito button:hover {
+    background-color: #218838; /* Cambio de color al pasar el ratón */
+    transform: scale(1.03);
+}
+
+#acciones-carrito button:active {
+    transform: scale(0.98); /* Efecto de reducción al hacer clic */
+}
+
+/* Botón de eliminación en el carrito */
+#lista-carrito li button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 6px 12px; /* Botón más pequeño */
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 400;
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+}
+
+#lista-carrito li button:hover {
+    background-color: #d32f2f;
+    transform: scale(1.03);
+}
+
+#lista-carrito li button:active {
+    transform: scale(0.98);
+}
+
+/* Ajuste para que coincida con el HTML */
+#buscar-libro {
+    width: 900px; /* Ancho aumentado */
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-weight: 300;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    margin: 20px 0;
+    max-width: 100%; /* Evitar desbordamiento */
+    box-sizing: border-box;
+}
+
+/* Ajuste para evitar conflicto de IDs */
+#carrito-btn {
+    background-color: #FF6347; 
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 25px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s ease-in-out;
+}
+
+#carrito-btn:hover {
+    background-color: #FF4500;
+}
+
+/* Ventana emergente del carrito */
+#carrito-contenedor {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 10px;
+}
+
+/* Mejor separación de botones */
+#acciones-carrito button {
+    margin-bottom: 10px;
+}
+
+#carrito-contenedor {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+    border-radius: 10px;
+}
+
+#carrito-contenedor.oculto {
+    display: none;
+}
+
+#lista-carrito img.miniatura {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.btn-eliminar {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}

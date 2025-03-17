@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Librería Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+
+
+        
+        <!-- Logo -->
+        <div class="contenedor-header">
+            <img src="imagenes/logo.png" alt="Logo Librería" id="logo">
+            <h1>Librería Tomo Salvaje</h1>
+        </div>
+        <!-- Barra de funciones -->
+        <nav>
+            <a href="" class="href class nav-link">Inicio</a>
+            <a href="" class="href class nav-link">Catalogo</a>
+            <a href="" class="href class nav-link">Novedades</a>
+            <a href="" class="href class nav-link">E-books</a>
+        </nav>
+    </header>
+
+     <!-- Carrito de compras -->
+     <div id="carrito-contenedor">
+        <button id="carrito-icono" onclick="toggleCarrito()">Carrito</button>
+        <div id="carrito-contenido" style="display:none;">
+            <ul id="lista-carrito"></ul>
+            <p>Total: <span id="total-carrito">$0.00</span></p>
+            <button onclick="finalizarCompra()">Finalizar Compra</button>
+        </div>
+    </div>
+
+
+    <!-- Barra de búsqueda -->
+    <section id="buscador">
+        <input type="text" id="buscar-libro" placeholder="Buscar un libro..." oninput="buscarLibros()">
+    </section>
+
+        <!-- Filtros de búsqueda -->
+        <section id="filtros">
+            <h2>Filtrar por género</h2>
+            <select id="filtro-genero">
+                <option value="todos">Todos</option>
+                <option value="ficcion">Ficción</option>
+                <option value="terror">Terror</option>
+                <option value="suspenso">Suspenso</option>
+                <option value="ciencia ficcion">Ciencia Ficción</option>
+                <option value="aventura">Aventura</option>
+            </select>
+        </section>
+
+    <!-- Catálogo de libros -->
+    <section id="catalogo">
+        <h2>Catálogo de Libros</h2>
+        <div id="libros-container">
+            <div class="libro">
+                <h3>Libro 1</h3>
+                <p>Descripción del libro 1.</p>
+            </div>
+            <div class="libro">
+                <h3>Libro 2</h3>
+                <p>Descripción del libro 2.</p>
+            </div>
+            <div class="libro">
+                <h3>Libro 3</h3>
+                <p>Descripción del libro 3.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Carrito de compras -->
+    <button id="carrito" onclick="toggleCarrito()">
+        🛒 <span id="contador-carrito">0</span>
+    </button>
+
+    <!-- Ventana emergente del carrito -->
+    <div id="carrito-contenido">
+        <ul id="lista-carrito"></ul>
+        <p>Total: <span id="total-carrito">$0.00</span></p>
+        <div id="acciones-carrito">
+            <button onclick="finalizarCompra()">Finalizar compra</button>
+            <button onclick="toggleCarrito()">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/carrito.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+[
+    {
+        "titulo": "It (Eso)",
+        "autor": "Stephen King",
+        "precio": 500,
+        "imagen": "imagenes/It.jpg",
+        "genero": "terror"
+    },
+    {
+        "titulo": "El Resplandor",
+        "autor": "Stephen King",
+        "precio": 400,
+        "imagen": "imagenes/resplandor.jpg",
+        "genero": "terror"
+    },
+    {
+        "titulo": "Apocalipsis",
+        "autor": "Stephen King",
+        "precio": 500,
+        "imagen": "imagenes/apocalipsis.jpg",
+        "genero": "ficcion"
+    },
+    {
+        "titulo": "Misery",
+        "autor": "Stephen King",
+        "precio": 250,
+        "imagen": "imagenes/misery.jpg",
+        "genero": "suspenso"
+    },
+    {
+        "titulo": "11/22/63",
+        "autor": "Stephen King",
+        "precio": 250,
+        "imagen": "imagenes/2211.jpg",
+        "genero": "ciencia ficcion"
+    },
+    {
+        "titulo": "La llamada de Cthulhu",
+        "autor": "H.P. Lovecraft",
+        "precio": 350,
+        "imagen": "imagenes/cthulhu.jpg",
+        "genero": "terror"
+    },
+    {
+        "titulo": "En las montañas de la locura",
+        "autor": "H.P. Lovecraft",
+        "precio": 600,
+        "imagen": "imagenes/montañas.jpg",
+        "genero": "terror"
+    },
+    {
+        "titulo": "La sombra sobre Innsmouth",
+        "autor": "H.P. Lovecraft",
+        "precio": 449,
+        "imagen": "imagenes/inssmouth.jpg",
+        "genero": "terror"
+    },
+    {
+        "titulo": "El color que cayó del cielo",
+        "autor": "H.P. Lovecraft",
+        "precio": 550,
+        "imagen": "imagenes/color.jpg",
+        "genero": "ciencia ficcion"
+    },
+    {
+        "titulo": "El horror de Dunwich",
+        "autor": "H.P. Lovecraft",
+        "precio": 499,
+        "imagen": "imagenes/dunwich.jpg",
+        "genero": "terror"
+    },
+    {
+        "titulo": "Dracula",
+        "autor": "Bram Stoker",
+        "precio": 450,
+        "imagen": "imagenes/dracula.jpg",
+        "genero": "terror"
+    },
+    {
+        "titulo": "Veinte mil leguas de viaje submarino",
+        "autor": "Julio Verne",
+        "precio": 399,
+        "imagen": "imagenes/veinte.jpg",
+        "genero": "aventura"
+    },
+    {
+        "titulo": "Viaje al centro de la Tierra",
+        "autor": "Julio Verne",
+        "precio": 350,
+        "imagen": "imagenes/viaje.jpg",
+        "genero": "aventura"
+    },
+    {
+        "titulo": "La vuelta al mundo en ochenta días",
+        "autor": "Julio Verne",
+        "precio": 199,
+        "imagen": "imagenes/vuelta.jpg",
+        "genero": "aventura"
+    },
+    {
+        "titulo": "Se lo que estas pensando",
+        "autor": "John Verdon",
+        "precio": 199,
+        "imagen": "imagenes/seloque.jpg",
+        "genero": "suspenso"
+    }
+]
