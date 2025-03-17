@@ -11,8 +11,8 @@ function cargarLibros() {
     fetch("../data/libros.json")
         .then(response => response.json())
         .then(libros => {
-            window.libros = libros; // Guardamos los libros globalmente para acceder a ellos
-            mostrarLibros(libros); // Muestra todos los libros al principio
+            window.libros = libros; 
+            mostrarLibros(libros); 
         })
         .catch(error => console.error("Error cargando libros:", error));
 }
@@ -20,7 +20,7 @@ function cargarLibros() {
 // Función para mostrar los libros en el catálogo
 function mostrarLibros(libros) {
     let contenedor = document.getElementById("libros-container");
-    contenedor.innerHTML = ""; // Limpiar el contenido del contenedor
+    contenedor.innerHTML = ""; 
 
     libros.forEach((libro, index) => {
         let div = document.createElement("div");
@@ -47,7 +47,7 @@ function filtrarLibros() {
     // Filtra los libros por género
     let librosFiltrados;
     if (generoSeleccionado === "todos") {
-        librosFiltrados = window.libros; // Si se selecciona "Todos", muestra todos los libros
+        librosFiltrados = window.libros; 
     } else {
         librosFiltrados = window.libros.filter(libro => libro.genero === generoSeleccionado);
     }
@@ -58,27 +58,26 @@ function filtrarLibros() {
 
 // Función para agregar libros al carrito
 function agregarAlCarrito(titulo, autor, imagen, precio) {
-    let libro = { titulo, autor, imagen, precio }; // Crear objeto de libro completo
-    carrito.push(libro); // Agregar objeto de libro al carrito
-    alert(`"${titulo}" agregado al carrito!`); // Muestra una alerta
-    actualizarCarrito(); // Llama a la función para actualizar el contador y el contenido del carrito
+    let libro = { titulo, autor, imagen, precio }; 
+    carrito.push(libro); 
+    alert(`"${titulo}" agregado al carrito!`); 
+    actualizarCarrito(); 
 }
 
 // Función para actualizar el contador del carrito y el total
 function actualizarCarrito() {
     let contador = document.getElementById("contador-carrito");
-    contador.innerText = carrito.length; // Actualiza el contador con la longitud del carrito
-
+    contador.innerText = carrito.length; 
     let totalCarrito = 0;
     carrito.forEach(libro => {
-        totalCarrito += libro.precio; // Suma los precios de los libros en el carrito
+        totalCarrito += libro.precio; 
     });
 
     let totalPagar = document.getElementById("total-carrito");
-    totalPagar.innerText = `$${totalCarrito.toFixed(2)}`; // Actualiza el total a pagar
+    totalPagar.innerText = `$${totalCarrito.toFixed(2)}`; 
 
     let listaCarrito = document.getElementById("lista-carrito");
-    listaCarrito.innerHTML = ""; // Limpiar la lista
+    listaCarrito.innerHTML = ""; 
 
     carrito.forEach(libro => {
         let li = document.createElement("li");
@@ -102,10 +101,10 @@ function toggleCarrito() {
     let carritoContenido = document.getElementById("carrito-contenido");
 
     if (carritoContenido.style.display === "none" || carritoContenido.style.display === "") {
-        carritoContenido.style.display = "block"; // Abrir carrito
-        actualizarCarrito();  // Actualizar el carrito al abrirlo
+        carritoContenido.style.display = "block";
+        actualizarCarrito();  
     } else {
-        carritoContenido.style.display = "none"; // Cerrar carrito
+        carritoContenido.style.display = "none"; 
     }
 }
 
